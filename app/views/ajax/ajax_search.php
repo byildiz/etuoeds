@@ -1,5 +1,5 @@
 <div id="container">
-  <div id="title">Değerlendirmeler için Firma Seç</div>
+  <div id="title"><?php echo $title; ?></div>
   <div id="content">
     <form id="searchForm" action="comment.php" method="post">    
       <div id="searchBar">

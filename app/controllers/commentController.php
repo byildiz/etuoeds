@@ -354,6 +354,7 @@ class CommentController extends Controller
     );
     $where = null;
     $orderBy = null;
+    $title = "Firmalar";
     if (!empty($_GET['select'])) {
       $select = filter_request($_GET['select']);
       if (in_array($select, $selects)) {
@@ -361,8 +362,10 @@ class CommentController extends Controller
           case 'commented':
             $where = array('comment_count' => '> 0');
             $orderBy = array('updated' => 'DESC');
+            $title = "Değerlendirme Yazılmış Firmalar";
             break;
           case 'asked':
+            $title = "Soru Sorulmuş Firmalar";
             $where = array('question_count' => '> 0');
             $orderBy = array('updated' => 'DESC');
             break;
@@ -386,6 +389,7 @@ class CommentController extends Controller
     }
     
     $data = array();
+    $data['title'] = $title;
     $data['firms'] = $firms;
     $data['json'] = json_encode($firmsJson);
     $this->view->show('../ajax/ajax_search.php', $data);
