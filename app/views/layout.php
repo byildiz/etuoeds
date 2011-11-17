@@ -119,11 +119,12 @@
         ETÜ OEDS &copy; 2011
         <div class="footerMenu">
           <?php if ($this->Account->isAdmin()): ?>
-          <a href="admin.php">Yönetici</a>·
+          <a href="admin.php">Yönetici</a> ·
           <?php endif; ?>
-          <a href="pages.php?s=purpose">Amaç</a>·
-          <a href="pages.php?s=tos">Kullanıcı Sözleşmesi</a>·
-          <a href="pages.php?s=about">Hakkımızda</a>·
+          <a href="pages.php?s=dev">Geliştiriciler</a> ·
+          <a href="pages.php?s=purpose">Amaç</a> ·
+          <a href="pages.php?s=tos">Kullanıcı Sözleşmesi</a> ·
+          <a href="pages.php?s=about">Hakkımızda</a> ·
           <a href="pages.php?s=contact">İletişim</a>
         </div>
         <div class="yasalUyari">

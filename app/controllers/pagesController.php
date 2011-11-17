@@ -30,4 +30,9 @@ class PagesController extends Controller
   {
     $this->view->show('contact.php');
   }
+  
+  public function dev()
+  {
+    $this->view->show('dev.php');
+  }
 }
