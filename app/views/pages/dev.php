@@ -1,5 +1,5 @@
 <div id="container">
-  <div id="title">Geliştiriciler</div>
+  <div id="title">Sende Katkıda Bulun</div>
   <div id="content">
     <div class="info">
       <p>Bizler ETÜ OEDS'yi Ortak Eğitim Sistemi'nin belirsizlikleri arasında
