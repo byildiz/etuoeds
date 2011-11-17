@@ -1,0 +1,24 @@
+ETÜOEDS {Ortak Eğitim Değerlendirme Sistemi}
+
+http://www.etuoeds.com
+https://github.com/byildiz/etuoeds
+
+Burak YILDIZ [yildizburak@msn.com]
+Tuna Çağlar GÜMÜŞ [tunacaglargumus@gmail.com]
+
+KURULUM
+-------
+1. mysql veritabanı oluştur
+2. app/db.sql dosyasını veritabana aktar
+3. app/config.example.php dosyasını config.php olarak yeniden adlandır
+4. config.php dosyasını kendi verilerin ile düzenle
+   ÖRN: veritabanı adı, veritabanı kullanıcı adı, veritabanı şifresi...
+5. sitene gir ve yeni bir kullanıcı oluştur.
+6. oluşturduğun veritabanına git ve users içinde kendi kullanıcı adının
+   user_type kısmını 1 yap. bu seni yönetici yapar.
+
+hayırlı olsun artık seninde bir değerlendirme sistemin var.
+
+NOT
+---
+siteye katkıda bulunmak için bizimle iletişime geçersen seviniriz.

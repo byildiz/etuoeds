@@ -1,0 +1,68 @@
+* siteye facebook hesabıyla giriş yapabilme özelliği ekle
+* ## ÖNEMLİ ## yeni firma listesiyle eskisinin uyumunu sağla
+* bildirimleri düzenle, site içi bildirim ekle: like facebook
+* dosya paylaşımı
+* verilen oylar için ilgili kişilere mail gönderme
+* firmaların sayfa gösterim sayılarını tut (view_count)
+* firmaları öneriye göre, ilgiye göre sıralama
+* ## İPTAL ## firmaların hangi bölümlerden öğrenci aldıklarını kullanıcılardan öğren
+
+* devetiyeli üye alımı için alt yapı -> 3 kişi hakkı olsun
+* site içi bildirileri göster -> vm gibi
+* emaillere şablon oluştur.
+* uygulama: staj günlüğü #şu an bunu yapıyorum#
+* değerlendirmeler fazla olduğunda altta twitter gibi....sen anladın
+* sorularda insanlar a-b-c-d diye ayrılacak böylece karışıklık öncelecek
+* kullanıcıların hataları gönderebilecekleri basit bi form
+* bildirim ayarları
+* değerlendirme yazmayı ve soru sormayı en üst kısma koy. tablı sistem
+* mesajlaşma özelliği
+* haritada firmanın yerini gösterme, resim yüklemede olabilir. staj dönemindeki resimlerin falan yüklenmesi
+  kullanışlı olabilir.
+
+GİRAY:
+------
+* ana sayfadaki firma listesini çat diye doldurmak yerine en azından baş harfine göre tablara ayırsak daha iyi olurdu, liste çok uzun c harfine geçene kadar sabrı tükeniyo insanın
+
+TUNA:
+-----
+* değerlendirme ve soru tuşları anasayfaya konulacak
+* değerlendirme ve soru textinputlarının üstünde yada altında isminiz gözükmiyecektir yazılacak // isim zaten yok
+* değerlendirme ve sorulara tarih yanında saat de konulacak // gerek yok
+
+YAPILANLAR
+----------
++* ortak eğitim yaptığı firmalar
++* ortak eğitim yapmak istediği firmalar
++* HATA: cevaplar beğenilemiyor: answer_id yerine question_id yazıyor
++* siteye twitter hesabıyla giriş yapabilme özelliği ekle
++* Firma bilgileri güncellendi, firma ekleme düzeltildi.
++* yorum yazan diğer kişileri de yeni yorumdan haberdar et.
++* ilk 400 kişiye attık mail geri kalana da atıcaz
++* hesabım: kişilerin kendi sayfası yapılacak
++* oylama sistemi [24.08.2011 13:07]
++* son 10 ların altına tüm linki koy ve tüm değerlendirmeleri, soruları cevapları falan göstersin
++* sadece değerlendirme yazılan firmaları görme
++* firmaların yanına kaç tane değ. ve soru olduğunu yaz
++* şifremi unuttum?
++* güncelleme mailleri ile gelen linklere tıkladığımızda ilgili sayfaya gitmiyor, ana sayfa açılıyor
++* üye giriş yapmayanlar da işlemler barını görecek
++* değerlendirme soru numaraları artar değil azalır olacak. sadece numaraların yeri değişecek
++* son 10 soru
++* giriş yönlendirmenin
++* yönetim paneli
++* Acil: kullanıcıların yeni doğrulama kodu alabilmesini sağla
++* Acil: üyelik sistemini standart hale çevir: şifreyi baştan belirlesinler.
++* soruya cevap geldiğinde veya değerlendirmeye soru geldiğinde kullanıcılara mail at.
++* tırnaklarda sıkıntı çıkıyor. niye?
++* css'i düzenle, herşey birbirine girdi.
++* Değerlendirme, soru ve cevap silme, düzenleme
++* Ajax arama
++* Kullanıcı e-posta'sını doğruladıysa fakat şifresini belirlemediyse onu
++  şifre belirleme ekranına yönlendirmenin yollarını ara.
++* İşlemleri düzenleme
++* çözünürlükte bi sıkıntı varmış
++  Gürkan: sitede, firmaları değerlendir bölümünde firma listesini açtığımda 1024x600 çözünürlüklü ekranımda listenin tamamı gözükmüyor.
++          3 tane uzun şirket ismi var, o yüzden fazla geniş sanırım ama belki bir şekilde düşük çözünürlüğe de uydurulabilir.
++          1024 ekran genişliği için hala düşük bir çözünürlük de değil çünkü, bu genişlikte baya pc vardır.
++* firma başlığı değerlendirme yazı aşağı itiyor
