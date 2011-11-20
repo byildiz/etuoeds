@@ -17,6 +17,24 @@ class CommentController extends Controller
     'write' => 'Değerlendirme yazabilmek için giriş yapmalısın'
   );
   
+  public $tabs = array(
+    array(
+      'name' => 'index',
+      'label' => 'Değerlendirmeler',
+      'link' => 'comment.php?'
+    ),
+    array(
+      'name' => 'write',
+      'label' => 'Değerlendirme Yaz',
+      'link' => 'comment.php?s=write&'
+    ),
+    array(
+      'name' => 'ask',
+      'label' => 'Soru Sor',
+      'link' => 'question.php?s=ask&'
+    ),
+  );
+  
   public function index()
   {
     $this->load('Firm');
@@ -39,6 +57,12 @@ class CommentController extends Controller
       $firms = $this->Firm->select(array('id' => $id));
     }
     $firm = $firms[0];
+    
+    // tablara seçili firmanın idsini ekle
+    foreach ($this->tabs as &$t) {
+      $t['link'] .= 'firm_id='.$firm['id'];
+    }
+    
     $comments = $this->Comment->getFirmComments($id);
     foreach ($comments as &$c) {
       $c['reviews'] = $this->Comment->getCommentReviews($c['id']);
@@ -70,6 +94,7 @@ class CommentController extends Controller
     foreach ($commentsVotes as $cv) $votedCommentIds[] = $cv['object_id'];
     
     $data = array();
+    $data['tabs'] = $this->tabs;
     $data['firm'] = $firm;
     $data['comments'] = $comments;
     $data['commentCount'] = count($comments);
@@ -85,7 +110,7 @@ class CommentController extends Controller
   
   public function select()
   {
-    if (!empty($_POST['firm']['id'])) {
+    if (!empty($_POST['firm']) && !empty($_POST['firm']['id'])) {
       $this->redirect('comment.php?s=write&firm_id='.$_POST['firm']['id']);
       return;
     }
@@ -140,6 +165,11 @@ class CommentController extends Controller
     }
     $firm = $firms[0];
     
+    // tablara seçili firmanın idsini ekle
+    foreach ($this->tabs as &$t) {
+      $t['link'] .= 'firm_id='.$firm['id'];
+    }
+    
     $this->load('Comment');
     $this->load('CommentForm');
     $rules = array(
@@ -190,8 +220,9 @@ class CommentController extends Controller
       }
     }
     
+    $data['tabs'] = $this->tabs;
     $data['firm'] = $firm;
-    $data['title'] = 'Değerlendirmeni Yaz';
+    $data['title'] = $firm['name'];
     $data['formAction'] = 'comment.php?s=write&firm_id='.$id;
     $data['comments'] = $this->Comment->getFirmComments($id);
     $this->view->CommentForm = $this->CommentForm;

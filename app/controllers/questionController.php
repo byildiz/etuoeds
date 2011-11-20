@@ -16,6 +16,24 @@ class QuestionController extends Controller
     'add' => 'Soru sorabilmek için giriş yapmalısın',
   );
   
+  public $tabs = array(
+    array(
+      'name' => 'index',
+      'label' => 'Değerlendirmeler',
+      'link' => 'comment.php?'
+    ),
+    array(
+      'name' => 'write',
+      'label' => 'Değerlendirme Yaz',
+      'link' => 'comment.php?s=write&'
+    ),
+    array(
+      'name' => 'ask',
+      'label' => 'Soru Sor',
+      'link' => 'question.php?s=ask&'
+    ),
+  );
+  
   public function select()
   {
     if (!empty($_POST['firm']['id'])) {
@@ -71,6 +89,11 @@ class QuestionController extends Controller
     }
     $firm = $firms[0];
     
+    // tablara seçili firmanın idsini ekle
+    foreach ($this->tabs as &$t) {
+      $t['link'] .= 'firm_id='.$firm['id'];
+    }
+    
     $this->load('Question');
     $this->load('QuestionForm');
     $rules = array(
@@ -123,6 +146,7 @@ class QuestionController extends Controller
     }
     
     $data = array();
+    $data['tabs'] = $this->tabs;
     $data['firm'] = $firm;
     $data['title'] = 'Soru sor:';
     $data['formAction'] = 'question.php?s=ask&firm_id='.$firm['id'];

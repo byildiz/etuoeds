@@ -5,6 +5,7 @@
 <div id="container">
   <div id="title"><?php echo $title; ?></div>
   <div id="content">
+    <?php echo $this->part('../general/horizontal_tab.php'); ?>
     <div class="form">
       <form action="<?php echo $formAction; ?>" method="post">    
         <table class="formTable">

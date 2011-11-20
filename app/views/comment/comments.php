@@ -1,8 +1,5 @@
 <div id="container">
-  <div id="title" class="firmTitle">
-    <div class="titleLink">
-      <a href="comment.php?s=write&firm_id=<?php echo $firm['id']; ?>">{değerlendirme yaz}</a>
-    </div>
+  <div id="title">
     <a href="comment.php?firm_id=<?php echo $firm['id']; ?>"><?php echo $firm['name']; ?></a>
     <?php
     if ($firm['id'] != 1) {
@@ -15,10 +12,17 @@
     ?>
   </div>
   <div id="content" class="firmContent">
+    <?php echo $this->part('../general/horizontal_tab.php'); ?>
     <div class="subContainer">
       <div class="subContent">
         <?php if (count($entries) == 0): ?>
-        <div class="info">Bu firma hakkında hiç değerlendirme yazılmamış ve soru sorulmamış.</div>
+        <div class="info">
+          <p>Bu firma hakkında hiç değerlendirme yazılmamış ve soru sorulmamış.</p>
+          <ul>
+          	<li>İlk değerlendirmeyi sen <a href="comment.php?s=write&firm_id=<?php  echo $firm['id']; ?>">yaz</a>,</li>
+            <li>veya bu firma hakkında merak ettiklerini <a href="question.php?s=ask&firm_id=<?php  echo $firm['id']; ?>">sor</a></li>
+          </ul>
+        </div>
         <?php else: ?>
         <?php foreach ($entries as $i => $e): ?>
         <?php if (!isset($e['question'])): ?>
@@ -134,7 +138,7 @@
         <?php endif; ?>
         <?php endforeach; ?>
         <?php endif; ?>
-        <a name="newcomment"></a>
+        <!--<a name="newcomment"></a>
         <div class="entryContainer commentContainer">
           <label for="commentComment">Değerlendirme yaz:</label>
           <form action="comment.php?s=write&firm_id=<?php echo $firm['id']; ?>" method="post">
@@ -150,7 +154,7 @@
             <textarea id="questionQuestion" class="inputTextarea qaTextarea" name="question[question]"></textarea>
             <input class="inputButton qaButton" type="submit" value="Gönder" />
           </form>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>

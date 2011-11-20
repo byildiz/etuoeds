@@ -1,6 +1,7 @@
 <div id="container">
   <div id="title"><a href="comment.php?firm_id=<?php echo $firm['id']; ?>"><?php echo $firm['name']; ?></a></div>
   <div id="content">
+    <?php echo $this->part('../general/horizontal_tab.php'); ?>
     <div class="qaContainer entryContainer askContainer">
       <label for="questionQuestion"><?php echo $title; ?></label>
       <form action="<?php echo $formAction; ?>" method="post">
