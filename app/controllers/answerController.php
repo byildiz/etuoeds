@@ -91,7 +91,7 @@ class AnswerController extends Controller
     $user = $this->Account->getLogedinUser();
     $userId = $user['id'];
     $this->load('Vote');
-    $firmVote = $this->Vote->getUserFirmVote($userId, $id);
+    $firmVote = $this->Vote->getUserFirmVote($userId, $firm['id']);
     $questionsVotes = $this->Vote->getUserQuestionsVotes($userId);
     $votedQuestionIds = array();
     foreach ($questionsVotes as $qv) $votedQuestionIds[] = $qv['object_id'];
