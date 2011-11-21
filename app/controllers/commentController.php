@@ -17,7 +17,7 @@ class CommentController extends Controller
     'write' => 'Değerlendirme yazabilmek için giriş yapmalısın'
   );
   
-  public $tabs = array(
+  public $tabsForFirm = array(
     array(
       'name' => 'index',
       'label' => 'Değerlendirmeler',
@@ -32,6 +32,24 @@ class CommentController extends Controller
       'name' => 'ask',
       'label' => 'Soru Sor',
       'link' => 'question.php?s=ask&'
+    ),
+  );
+  
+  public $tabsForFirmSelect = array(
+    'index' => array(
+      'name' => 'all',
+      'label' => 'Alayını Göster',
+      'link' => 'comment.php'
+    ),
+    'commented' => array(
+      'name' => 'commented',
+      'label' => 'Değerlendirme Yazılmışlar',
+      'link' => 'comment.php?select=commented'
+    ),
+    'asked' => array(
+      'name' => 'asked',
+      'label' => 'Soru Sorulmuşlar',
+      'link' => 'comment.php?select=asked'
     ),
   );
   
@@ -59,7 +77,7 @@ class CommentController extends Controller
     $firm = $firms[0];
     
     // tablara seçili firmanın idsini ekle
-    foreach ($this->tabs as &$t) {
+    foreach ($this->tabsForFirm as &$t) {
       $t['link'] .= 'firm_id='.$firm['id'];
     }
     
@@ -94,7 +112,7 @@ class CommentController extends Controller
     foreach ($commentsVotes as $cv) $votedCommentIds[] = $cv['object_id'];
     
     $data = array();
-    $data['tabs'] = $this->tabs;
+    $data['tabs'] = $this->tabsForFirm;
     $data['firm'] = $firm;
     $data['comments'] = $comments;
     $data['commentCount'] = count($comments);
@@ -166,7 +184,7 @@ class CommentController extends Controller
     $firm = $firms[0];
     
     // tablara seçili firmanın idsini ekle
-    foreach ($this->tabs as &$t) {
+    foreach ($this->tabsForFirm as &$t) {
       $t['link'] .= 'firm_id='.$firm['id'];
     }
     
@@ -220,7 +238,7 @@ class CommentController extends Controller
       }
     }
     
-    $data['tabs'] = $this->tabs;
+    $data['tabs'] = $this->tabsForFirm;
     $data['firm'] = $firm;
     $data['title'] = $firm['name'];
     $data['formAction'] = 'comment.php?s=write&firm_id='.$id;
@@ -391,16 +409,19 @@ class CommentController extends Controller
       if (in_array($select, $selects)) {
         switch ($select) {
           case 'commented':
+            $this->tabsForFirmSelect['commented']['selected'] = true;
             $where = array('comment_count' => '> 0');
             $orderBy = array('updated' => 'DESC');
-            $title = "Değerlendirme Yazılmış Firmalar";
+            // $title = "Değerlendirme Yazılmış Firmalar";
             break;
           case 'asked':
-            $title = "Soru Sorulmuş Firmalar";
+            $this->tabsForFirmSelect['asked']['selected'] = true;
+            // $title = "Soru Sorulmuş Firmalar";
             $where = array('question_count' => '> 0');
             $orderBy = array('updated' => 'DESC');
             break;
           default:
+            $this->tabsForFirmSelect['index']['selected'] = true;
             $where = null;
             $orderBy = null;
             break;
@@ -420,6 +441,7 @@ class CommentController extends Controller
     }
     
     $data = array();
+    $data['tabs'] = $this->tabsForFirmSelect;
     $data['title'] = $title;
     $data['firms'] = $firms;
     $data['json'] = json_encode($firmsJson);

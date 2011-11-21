@@ -1,6 +1,7 @@
 <div id="container">
   <div id="title"><?php echo $title; ?></div>
   <div id="content">
+    <?php echo $this->part('../general/horizontal_tab.php'); ?>
     <form id="searchForm" action="comment.php" method="post">    
       <div id="searchBar">
         <input id="searchInput" class="inputText searchText" type="text" name="comment[search]" placeholder="Hızlı bul" autocomplete="off" />
