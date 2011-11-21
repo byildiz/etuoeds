@@ -1,6 +1,4 @@
-+* answer reply hatalı: firmayı önerdikten sonra yine firmayı öner çıkıyor
 * firmalar tab: hepsi, son 10 değerlendirme, soru, cevap
-* değerlendirme yazmayı ve soru sormayı en üst kısma koy. tablı sistem
 * siteye facebook hesabıyla giriş yapabilme özelliği ekle
 * ## ÖNEMLİ ## yeni firma listesiyle eskisinin uyumunu sağla
 * bildirimleri düzenle, site içi bildirim ekle: like facebook
@@ -34,6 +32,8 @@ TUNA:
 
 YAPILANLAR
 ----------
++* answer reply hatalı: firmayı önerdikten sonra yine firmayı öner çıkıyor
++* değerlendirme yazmayı ve soru sormayı en üst kısma koy. tablı sistem
 +* ortak eğitim yaptığı firmalar
 +* ortak eğitim yapmak istediği firmalar
 +* HATA: cevaplar beğenilemiyor: answer_id yerine question_id yazıyor
