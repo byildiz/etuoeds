@@ -27,6 +27,7 @@ $firmalar_dizi = split("\n", $firmalar);
 foreach ($firmalar_dizi as $f) {
   if ($f == '')
     continue;
+  
   $firma = array_map('trim', split(';', $f));
   $name = mb_strtoupper($firma[0], 'UTF-8');
   $selected = $db->select('firms', array('name' => $name));
@@ -44,7 +45,7 @@ foreach ($firmalar_dizi as $f) {
       $updated['departments'] = $s['departments'].','.$firma[1];
     }
     $db->update('firms', $updated, array('id' => $s['id']));
-    // pr($updated);
+    // pr($s);
   } else {
     $yeni_firma = array(
       'name' => $name,
