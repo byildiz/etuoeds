@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+  font-family: helvetica,tahoma,verdana,arial,sans-serif;
   font-size: 13px;
 }
 
@@ -50,8 +50,20 @@ li {
   font-weight: bold;
 }
 
-.seperator {
+.seperator5 {
+  margin-top: 5px;
+}
+
+.seperator, .seperator10 {
   margin-top: 10px;
+}
+
+.seperator20 {
+  margin-top: 20px;
+}
+
+.seperator30 {
+  margin-top: 30px;
 }
 /*END: General */
 
@@ -60,7 +72,7 @@ li {
  * Layout
  */
 #page {
-  width: 700px;
+  width: 900px;
   margin: 0px auto;
 }
 
@@ -86,8 +98,8 @@ li {
 
 #footer {
   margin-left: 200px;
-  width: 496px;
-  padding-left: 4px;
+  width: 692px;
+  padding: 0 4px;
   color: #AAAAAA;
   font-size: 11px;
 }
@@ -95,7 +107,7 @@ li {
 #container {
   margin-left: 200px;
   padding: 2px;
-  width: 498px;
+  width: 698px;
 }
 
 #title {
@@ -294,7 +306,7 @@ li {
   overflow: auto;
   padding: 2px;
   resize: vertical;
-  width: 462px;
+  width: 662px;
   outline: medium none;
 }
 
@@ -441,7 +453,7 @@ li {
 }
 
 .reviewTextarea {
-  width: 339px;
+  width: 539px;
   height: 45px;
   outline: medium none;
   overflow: auto;
@@ -454,7 +466,7 @@ li {
  */
 .qaTextarea {
   height: 45px;
-  width: 339px;
+  width: 539px;
   outline: medium none;
   overflow: auto;
 }
@@ -597,7 +609,7 @@ li {
 
 .searchText {
   padding: 4px ;
-  width: 400px;
+  width: 600px;
   height: 16px;
 }
 
@@ -620,7 +632,11 @@ li {
   padding: 0 4px;
   position: absolute;
   text-align: left;
-  width: 396px;
+  width: 596px;
+}
+
+#searchResult a {
+  text-decoration: none;
 }
 
 .searchItem {
@@ -769,6 +785,7 @@ li {
   padding: 13px 10px 1px;
   font-size: 13px !important;
   font-weight: bold;
+  margin: -2px -2px 0 -2px;
 }
 
 .horTabElem {
@@ -819,6 +836,10 @@ li {
   position: absolute;
   text-align: left;
   max-width: 432px;
+}
+
+.autoCompleteList a {
+  text-decoration: none !important;
 }
 
 .firmNameLink {
@@ -876,6 +897,12 @@ li {
 /* END: Blog */
 
 /* Settings */
+.settingsForm {
+  width: 450px;
+  margin: auto;
+  padding: 30px;
+}
+
 .settingsLightInfo {
   color: #777777;
 }

@@ -49,7 +49,7 @@
     <div class="subContainer">
     	<div class="subTitle">E-posta:</div>
     	<div class="subContent">
-        <div class="form">
+        <div class="form settingsForm">
           <table class="formTable">
             <tr>
               <td class="label"><div style="color: #0C3F5C; font-weight: bold;">E-posta:</div></td>
@@ -62,7 +62,7 @@
     <div class="subContainer">
     	<div class="subTitle">Şifre:</div>
     	<div class="subContent">
-        <div class="form">
+        <div class="form settingsForm">
           <form action="settings.php?s=change_password" method="post">
             <table class="formTable">
               <tr>
@@ -110,8 +110,8 @@
     <div class="subContainer">
     	<div class="subTitle">Bildirimler:</div>
     	<div class="subContent">
-        <div class="form">
-          Şu anda bildirim ayarları yapılamıyor!<br />
+        <div class="form settingsForm">
+          Şu anda bildirim ayarları yapılamıyor!
           Ama yakında yapılabilecek...
         </div>
       </div>

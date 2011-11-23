@@ -82,7 +82,7 @@ class SettingsController extends Controller
   {
     $infoData = array(
       'title' => 'Şifre Değiştirme',
-      'message' => 'Şifreniz değiştirildi.<br/><br/>Anasayfaya {<a class="underline" href="comment.php">dön</a>}'
+      'message' => 'Şifreniz değiştirildi.<br/><br/>Ayarlar sayfasına {<a class="underline" href="settings.php">dön</a>}'
     );
     $this->info('info.php', $infoData);
   }

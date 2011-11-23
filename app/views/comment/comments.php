@@ -24,6 +24,7 @@
           </ul>
         </div>
         <?php else: ?>
+        <div class="seperator10"></div>
         <?php foreach ($entries as $i => $e): ?>
         <?php if (!isset($e['question'])): ?>
         <div class="entryContainer commentContainer">
@@ -134,9 +135,10 @@
             <input class="inputButton qaButton" type="submit" value="Gönder" />
           </form>
         </div>
-        <div class="seperator"></div>
         <?php endif; ?>
+        <div class="seperator20"></div>
         <?php endforeach; ?>
+        <div style="margin-top: -20px"></div>
         <?php endif; ?>
         <!--<a name="newcomment"></a>
         <div class="entryContainer commentContainer">

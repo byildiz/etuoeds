@@ -7,8 +7,8 @@
           <tr>
           	<td colspan="2">
               <div>
-                <p>Yeni şifre için e-posta adresinizi yazın.</p>
-                <p>Formu doldurduktan sonra e-posta adresinize şifrenizi değiştirebilmenizi sağlayacak bir link gönderilecektir.</p>
+                <p>Yeni şifre için e-posta adresini yaz.</p>
+                <p>Formu doldurduktan sonra e-posta adresine şifreni değiştirebilmeni sağlayacak bir link gönderilecektir.</p>
               </div>
             </td>
           </tr>

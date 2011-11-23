@@ -3,7 +3,7 @@
 // 30 Temmuz 2011 18:56
 ?>
 <div id="container">
-  <div id="title">Değerlendirmek için Firma Seç</div>
+  <div id="title">Değerlendirme için Firma Seç</div>
   <div id="content">
     <div class="form">
       <form action="comment.php?s=select" method="post">    

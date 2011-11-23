@@ -3,7 +3,7 @@
   <div id="content">
     <div class="info">
       Kayıtlı kullancı sayısı: <?php echo $userCount; ?>
-      <table border="1">
+      <table border="1" style="width: 100%">
         <tr>
           <th>E-posta</th>
           <th>Doğrulanmış</th>

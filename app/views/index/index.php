@@ -1,5 +1,5 @@
 <div id="container">
-  <div id="title">Hoşgeldiniz</div>
+  <div id="title">Hoşgeldin</div>
   <div id="content">
     <div class="info">
       <p>Bu site ortak eğitim yaptığımız firmaları ve ortak eğitim sistemini
@@ -7,7 +7,7 @@
       <p>Ortak eğitim için firma belirlenmede bizlere yardımcı olacak bu site
       aynı zamanda ortak eğitim sistemindeki eksikliklerin giderilmesinde de
       faydalı olacaktır.</p>
-      <p>Kayıt için aşağıdaki formu doldurmanız yeterlidir.</p>
+      <p>Kayıt için aşağıdaki formu doldurman yeterlidir.</p>
       <div class="form">
         <form action="register.php" method="post">
           <table class="formTable">

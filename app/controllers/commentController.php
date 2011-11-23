@@ -36,7 +36,7 @@ class CommentController extends Controller
   );
   
   public $tabsForFirmSelect = array(
-    'index' => array(
+    'all' => array(
       'name' => 'all',
       'label' => 'Alayını Göster',
       'link' => 'comment.php'
@@ -151,7 +151,7 @@ class CommentController extends Controller
     $data = array();
     $data['firms'] = $firms;
     $data['json'] = json_encode($firmsJson);
-    $data['title'] = 'Değerlendirmek için Firma Seç';
+    $data['title'] = 'Değerlendirme için Firma Seç';
     $data['formAction'] = 'comment.php?s=write';
     $this->view->show('../ajax/select_firm.php', $data);
     // $this->load('Firm');
@@ -404,30 +404,34 @@ class CommentController extends Controller
     $where = null;
     $orderBy = null;
     $title = "Firmalar";
+    $tabSelected = false;
     if (!empty($_GET['select'])) {
       $select = filter_request($_GET['select']);
       if (in_array($select, $selects)) {
         switch ($select) {
           case 'commented':
             $this->tabsForFirmSelect['commented']['selected'] = true;
+            $tabSelected = true;
             $where = array('comment_count' => '> 0');
             $orderBy = array('updated' => 'DESC');
             // $title = "Değerlendirme Yazılmış Firmalar";
             break;
           case 'asked':
             $this->tabsForFirmSelect['asked']['selected'] = true;
+            $tabSelected = true;
             // $title = "Soru Sorulmuş Firmalar";
             $where = array('question_count' => '> 0');
             $orderBy = array('updated' => 'DESC');
             break;
           default:
-            $this->tabsForFirmSelect['index']['selected'] = true;
             $where = null;
             $orderBy = null;
             break;
         }
       }
     }
+    if (!$tabSelected)
+      $this->tabsForFirmSelect['all']['selected'] = true;
     $firms = $this->Firm->getFirms($where, $orderBy);
     $firmsJson = array();
     foreach ($firms as $f) {

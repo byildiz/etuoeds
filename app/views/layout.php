@@ -13,7 +13,7 @@
   <body>
     <div id="page">
       <div id="header">
-        <a href="<?php echo $this->Account->isLogedin() ? $this->Account->getLoginRedirect() : ''; ?>"><img src="img/yeni_logo.png" alt="ETÜ OEDS" border="0"/></a>
+        <a href="<?php echo $this->Account->isLogedin() ? $this->Account->getLoginRedirect() : 'index.php'; ?>"><img src="img/yeni_logo.png" alt="ETÜ OEDS" border="0"/></a>
       </div>
       <div id="left">
         <?php if (!$this->Account->isLogedin()): ?>
@@ -67,9 +67,9 @@
         <div class="leftContainer">
           <div class="leftTitle">İşlemler</div>
           <div class="userLinks">
-            <div class="userLink"><a href="comment.php?firm_id=1">O.E. Sistemi Değerlendirmeleri</a></div>
-            <div class="userLink"><a href="comment.php?s=write&firm_id=1">O.E. Sistemini Değerlendir</a></div>
-            <div class="userLink"><a href="question.php?s=ask&firm_id=1">O.E. Sistemi Hakkında Soru Sor</a></div>
+            <div class="userLink"><a href="comment.php?firm_id=1">O.E. Değerlendirmeleri</a></div>
+            <div class="userLink"><a href="comment.php?s=write&firm_id=1">O.E. Değerlendir</a></div>
+            <div class="userLink"><a href="question.php?s=ask&firm_id=1">O.E. Hakkında Soru Sor</a></div>
             <div class="userLink"><a href="comment.php">Firma Değerlendirmeleri</a></div>
             <div class="userLink"><a href="comment.php?s=select">Firmaları Değerlendir</a></div>
             <div class="userLink"><a href="question.php?s=select">Firmalar Hakkında Soru Sor</a></div>
