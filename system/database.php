@@ -71,7 +71,7 @@ class Database
   
   public function select($tableName, $where = null, $orderBy = null, $limit = null)
   {
-    $sql = 'SELECT * FROM '.$this->_getTableName($tableName);
+    $sql = 'SELECT * FROM `'.$this->_getTableName($tableName).'`';
     if ($where != null) {
       $conditions = array();
       foreach ($where as $i => $w) {
@@ -79,9 +79,9 @@ class Database
             || strpos($w, '<') === 0
             || strpos($w, '!') === 0
             || strpos($w, '=') === 0)
-          $conditions[] = sprintf('%s %s', $i, $w);
+          $conditions[] = sprintf('`%s` %s', $i, $w);
         else
-          $conditions[] = sprintf('%s = "%s"', $i, filter_sql($w));
+          $conditions[] = sprintf('`%s` = "%s"', $i, filter_sql($w));
       }
       $sql .= ' WHERE '.implode(' AND ', $conditions);
     }
@@ -89,7 +89,7 @@ class Database
       $sql .= ' ORDER BY ';
       $orderBys = array();
       foreach ($orderBy as $i => $o) {
-        $orderBys[] = sprintf('%s %s', $i, filter_sql($o));
+        $orderBys[] = sprintf('`%s` %s', $i, filter_sql($o));
       }
       $sql .= implode(', ', $orderBys);
     }
@@ -111,11 +111,11 @@ class Database
   
   public function insert($tableName, $data)
   {
-    $sql = 'INSERT INTO '.$this->_getTableName($tableName);
+    $sql = 'INSERT INTO `'.$this->_getTableName($tableName).'`';
     $fields = array();
     $values = array();
     foreach ($data as $key => $value) {
-      $fields[] = $key;
+      $fields[] = '`'.$key.'`';
       $values[] = sprintf("'%s'", filter_sql($value));
     }
     
@@ -137,11 +137,11 @@ class Database
   
   public function delete($tableName, $where)
   {
-    $sql = 'DELETE FROM '.$this->_getTableName($tableName);
+    $sql = 'DELETE FROM `'.$this->_getTableName($tableName).'`';
     if ($where != null) {
       $conditions = array();
       foreach ($where as $i => $w) {
-        $conditions[] = sprintf('%s = "%s"', $i, filter_sql($w));
+        $conditions[] = sprintf('`%s` = "%s"', $i, filter_sql($w));
       }
       $sql .= ' WHERE '.implode(' AND ', $conditions);
     }
@@ -151,10 +151,10 @@ class Database
   
   public function update($tableName, $data, $where = null)
   {
-    $sql = 'UPDATE '.$this->_getTableName($tableName).' SET ';
+    $sql = 'UPDATE `'.$this->_getTableName($tableName).'` SET ';
     $updatedData = array();
     foreach ($data as $i => $d) {
-      $updatedData[] = sprintf('%s = "%s"', $i, filter_sql($d));
+      $updatedData[] = sprintf('`%s` = "%s"', $i, filter_sql($d));
     }
     $sql .= implode(', ', $updatedData);
     if ($where != null) {
