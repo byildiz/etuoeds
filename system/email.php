@@ -127,7 +127,7 @@ class Email
       $index = 0;
       foreach ($emailList[0] as $index => $e) {
         $m['to'] = $e;
-        // $this->mail($m);
+        $this->mail($m);
         $emailList[1][$index] = '~'.$emailList[1][$index];
         $count++;
         if ($count >= $this->config['perDeliveryCount'])
