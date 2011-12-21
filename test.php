@@ -18,4 +18,23 @@ defined('DONTRUN')
 
 include 'index.php';
 
-// include BASEDIR.'/tests/test_ornek.php';
+$get = filter_request($_GET);
+$testDirPath = BASEDIR.'/tests';
+
+if (isset($get['file']))
+  $testFilePath = $testDirPath.'/'.$get['file'].'.php';
+else
+  $testFilePath = '';
+
+if (!isset($get['file']) || !file_exists($testFilePath)) {
+  if (isset($get['file'])) {
+    echo '<p style="color: red">test dosyasi bulunamadi: '.$get['file'].'</p>';
+  }
+  $testDirHandle = opendir($testDirPath);
+  while (($file = readdir($testDirHandle)) !== false) {
+    if ($file != "." && $file != "..")
+      echo '<a href="test.php?file='.array_shift(explode('.', $file)).'">'.$file.'</a>';
+  }
+} else {
+  include $testFilePath;
+}
