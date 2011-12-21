@@ -164,7 +164,7 @@ class Email
       }
     }
     
-    $emails = explode("\n", file_get_contents($filePath));
+    $emails = explode("\n", trim(file_get_contents($filePath)));
     $emails = array_map('trim', $emails);
     $list = array();
     foreach ($emails as $i => $e) {
