@@ -23,3 +23,4 @@ $app->load('Emailer');
 // );
 // $app->Emailer->queue($mail);
 // $app->Emailer->sendByPriority();
+// $app->Emailer->send('st06150323@etu.edu.tr', 'Deneme mailı', 'test_mail.php');
