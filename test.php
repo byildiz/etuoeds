@@ -18,6 +18,8 @@ defined('DONTRUN')
 
 include 'index.php';
 
+error_reporting(E_ALL);
+
 $get = filter_request($_GET);
 $testDirPath = BASEDIR.'/tests';
 

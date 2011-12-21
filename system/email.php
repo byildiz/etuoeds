@@ -107,32 +107,75 @@ class Email
     if (count($mails) == 0)
       return true;
     
-    $emails = $this->getAllEmails();
+    $emails = $this->getList();
+    $count = 0;
     foreach ($mails as $m) {
-      // subjecti kontrol et eğer içinde * ve - varsa ona göre gönderilecek
-      // kişileri belirle ve o kişilere mail at. sonra dosyasını güncelle
-      $this->mail($m);
-      $updated = array(
-        'updated' => created_time(),
-        'mailed' => created_time(),
-        'status' => self::MAILED
-      );
-      $mailModel->update($updated, $m['id']);
+      // subject regular exp. olsun ve ona göre her mail için gönderilecekler
+      // listesi oluştur ve göndermeye başla
+      $listFilePath = $this->config['emailListsDir'].'/list_'.$m['id'].'.txt';
+      if (!file_exists($listFilePath)) {
+        $matches = array();
+        foreach ($emails as $e) {
+          if (preg_match('|'.$m['to'].'|imsU', $e)) {
+            $matches[] = $e;
+          }
+        }
+        file_put_contents($listFilePath, implode("\n", $matches));
+      }
+      
+      $emailList = $this->getList($listFilePath, true);
+      $index = 0;
+      foreach ($emailList[0] as $index => $e) {
+        $m['to'] = $e;
+        // $this->mail($m);
+        $emailList[1][$index] = '~'.$emailList[1][$index];
+        $count++;
+        if ($count >= $this->config['perDeliveryCount'])
+          break;
+      }
+      // eğer listedeki herkese gönderildiyse maili gönderildi olarak işaretle
+      if (count($emailList[0]) == $count) {
+        $updated = array(
+          'updated' => created_time(),
+          'mailed' => created_time(),
+          'status' => self::MAILED
+        );
+        $mailModel->update($updated, $m['id']);
+      }
+      // mail listesinide güncelle
+      file_put_contents($listFilePath, implode("\n", $emailList[1]));
+      // yeterince mail gönderildiyse çık
+      if ($count >= $this->config['perDeliveryCount'])
+        break;
     }
     
     return true;
   }
   
-  public function getAllEmails()
+  public function getList($filePath = null, $original = false)
   {
-    if (!isset($this->config['allEmailsFile'])
-        || !file_exist($this->config['allEmailsFile'])
-    ) {
-      return array();
+    if (!$filePath) {
+      if (!isset($this->config['allEmailsFile'])
+          || !file_exists($this->config['allEmailsFile'])
+      ) {
+        return array();
+      } else {
+        $filePath = $this->config['allEmailsFile'];
+      }
     }
     
-    $emails = explode("\n", file_get_contents($this->config['allEmailsFile']));
+    $emails = explode("\n", file_get_contents($filePath));
     $emails = array_map('trim', $emails);
-    return $emails;
+    $list = array();
+    foreach ($emails as $i => $e) {
+      if (strpos($e, '~') === false) {
+        $list[$i] = $e;
+      }
+    }
+    if ($original) {
+      return array($list, $emails);
+    } else {
+      return $list;
+    }
   }
 }

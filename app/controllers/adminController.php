@@ -199,4 +199,37 @@ class AdminController extends Controller
     $data = compact('user');
     $this->view->show('view_user.php', $data);
   }
+  
+  public function prepare_mail()
+  {
+    if (!empty($_POST)) {
+      $data = filter_request($_POST);
+      if (!isset($data['to'])
+          || !isset($data['subject'])
+          || !isset($data['body'])
+          || $data['to'] == ''
+          || $data['subject'] == ''
+          || $data['body'] == '') {
+        $this->Message->set('Admin.Mail', 'Gerekli alanları doldur!');
+      } else {
+        $mail = array(
+          'to' => $data['to'],
+          'subject' => $data['subject'],
+          'body' => nl2br($data['body']),
+        );
+        if (isset($data['priority']) && $data['priority'] != '') {
+          $mail['priority'] = $data['priority'];
+        }
+        $this->load('Emailer');
+        $this->Emailer->queue($mail);
+        $this->redirect('admin.php?s=queue_mail');
+      }
+    }
+    $this->view->show('prepare_mail.php');
+  }
+  
+  public function queue_mail()
+  {
+    $this->view->show('queue_mail.php');
+  }
 }

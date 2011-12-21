@@ -3,6 +3,7 @@
   <div id="content">
     <div class="info">
       <ul>
+        <li><a href="admin.php?s=prepare_mail">Mail Gönderme Sistemi</a></li>
         <li><a href="piwik/" target="_blank">Piwik</a></li>
         <li><a href="https://www.google.com/analytics" target="_blank">Google Analytics</a></li>
         <li><a href="admin.php?s=logs">Sistem kayıtları</a></li>

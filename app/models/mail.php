@@ -11,12 +11,11 @@
 
 class Mail extends Model
 {
-  $tableName = 'mails';
+  public $tableName = 'mails';
   
   public function selectByPriority()
   {
-    $app = System->app();
-    $app->load('Email');
+    $app = System::app();
     $where = array(
       'status' => Email::FRESH
     );
@@ -24,7 +23,8 @@ class Mail extends Model
       'priority' => 'ASC',
       'created' => 'ASC'
     );
-    $limit = 1;
+    $limit = isset($app->config['mailConfig']['perDeliveryCount'])
+        ? $app->config['mailConfig']['perDeliveryCount'] : 10;
     return $this->select($where, $orderBy, $limit);
   }
 }
