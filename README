@@ -8,13 +8,15 @@ Tuna Çağlar GÜMÜŞ [tunacaglargumus@gmail.com]
 
 KURULUM
 -------
-1. mysql veritabanı oluştur
-2. app/db.sql dosyasını veritabana aktar
-3. app/config.example.php dosyasını config.php olarak yeniden adlandır
-4. config.php dosyasını kendi verilerin ile düzenle
+1. libs dizini oluştur
+2. libs içine ZendFramework 1.11 versiyonunu kur. (http://framework.zend.com)
+3. mysql veritabanı oluştur
+4. app/db.sql dosyasını veritabana aktar
+5. app/config.example.php dosyasını config.php olarak yeniden adlandır
+6. config.php dosyasını kendi verilerin ile düzenle
    ÖRN: veritabanı adı, veritabanı kullanıcı adı, veritabanı şifresi...
-5. sitene gir ve yeni bir kullanıcı oluştur.
-6. oluşturduğun veritabanına git ve users içinde kendi kullanıcı adının
+7. sitene gir ve yeni bir kullanıcı oluştur.
+8. oluşturduğun veritabanına git ve users içinde kendi kullanıcı adının
    user_type kısmını 1 yap. bu seni yönetici yapar.
 
 hayırlı olsun artık seninde bir değerlendirme sistemin var.
