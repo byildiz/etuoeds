@@ -38,7 +38,7 @@ class CommentController extends Controller
   public $tabsForFirmSelect = array(
     'all' => array(
       'name' => 'all',
-      'label' => 'Alayını Göster',
+      'label' => 'Hepsi',
       'link' => 'comment.php'
     ),
     'commented' => array(
