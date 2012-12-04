@@ -16,7 +16,7 @@
           sayfamızı ziyaret edebilirsin.</li>
       </ul>
       <p>Daha fazla bilgi için bizimle iletişime geçmekten çekinme.</p>
-      <p>E-posta adresimiz: <b>info@etuoeds.com</b></p>
+      <p>E-posta adresimiz: <b>bilgi@etuoeds.com</b></p>
     </div>
   </div>
 </div>
