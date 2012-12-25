@@ -137,7 +137,8 @@
     <!-- Google Analytics -->
     <script type="text/javascript">
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-24935579-1']);
+      _gaq.push(['_setAccount', 'UA-24935579-2']);
+      _gaq.push(['_setDomainName', 'etuoeds.com']);
       _gaq.push(['_trackPageview']);
 
       (function() {
